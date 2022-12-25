@@ -60,15 +60,17 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/icon_close_eye"
+        android:alpha="0.7"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:layout_width="155dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="158dp"
         android:layout_height="57dp"
-        android:background="@color/shadow_button"
+        android:backgroundTint="@color/shadow_button"
         android:layout_alignStart="@id/main_activity_login_button"
         android:layout_alignTop="@id/main_activity_login_button"
         android:layout_marginTop="6dp"
+        app:cardCornerRadius="3dp"
         />
 
     <Button
