@@ -94,14 +94,14 @@
         android:layout_width="218dp"
         android:layout_height="57dp"
         android:backgroundTint="@color/shadow_button"
-        android:layout_alignStart="@id/forgot_activity_get_button"
-        android:layout_alignTop="@id/forgot_activity_get_button"
+        android:layout_alignStart="@id/restore_activity_change_button"
+        android:layout_alignTop="@id/restore_activity_change_button"
         android:layout_marginTop="6dp"
         app:cardCornerRadius="3dp"
         />
 
     <Button
-        android:id="@+id/forgot_activity_get_button"
+        android:id="@+id/restore_activity_change_button"
         android:layout_width="210dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
