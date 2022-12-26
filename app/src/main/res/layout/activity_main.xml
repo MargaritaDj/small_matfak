@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:scaleType="center"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background"
-        />
 
     <ImageView
         android:id="@+id/main_activity_background_login"
@@ -70,7 +65,7 @@
         android:layout_alignStart="@id/main_activity_login_button"
         android:layout_alignTop="@id/main_activity_login_button"
         android:layout_marginTop="6dp"
-        app:cardCornerRadius="3dp"
+        app:cardCornerRadius="0dp"
         />
 
     <Button
@@ -84,6 +79,7 @@
         android:text="@string/login_button"
         android:textStyle="bold"
         android:textSize="17sp"
+        app:cornerRadius="0dp"
         />
 
     <Button

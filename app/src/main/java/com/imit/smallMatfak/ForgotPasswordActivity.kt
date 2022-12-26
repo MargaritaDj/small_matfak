@@ -3,6 +3,7 @@ package com.imit.smallMatfak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class ForgotPasswordActivity : AppCompatActivity(){
@@ -12,8 +13,17 @@ class ForgotPasswordActivity : AppCompatActivity(){
 
         val buttonGetCode: Button = findViewById(R.id.forgot_activity_get_button)
         buttonGetCode.setOnClickListener {
-            val intent = Intent(this, RestoreCodeActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RestoreCodeActivity::class.java))
+        }
+
+        val buttonBack: ImageButton = findViewById(R.id.forgot_activity_back)
+        buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        val buttonHome: ImageButton = findViewById(R.id.forgot_activity_home)
+        buttonHome.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }

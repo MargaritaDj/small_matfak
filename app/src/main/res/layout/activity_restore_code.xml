@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:scaleType="center"
     tools:context=".RestoreCodeActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background"
-        />
 
     <ImageView
         android:id="@+id/restore_activity_background_login"
@@ -22,6 +17,26 @@
         android:background="@color/grey_blue"
         tools:ignore="MissingConstraints"
         />
+
+    <ImageButton
+        android:id="@+id/restore_activity_back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@id/restore_activity_background_login"
+        android:layout_alignTop="@id/restore_activity_background_login"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/restore_activity_home"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/home"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/restore_activity_restore_password"
@@ -105,7 +120,7 @@
         android:layout_alignStart="@id/restore_activity_change_button"
         android:layout_alignTop="@id/restore_activity_change_button"
         android:layout_marginTop="6dp"
-        app:cardCornerRadius="3dp"
+        app:cardCornerRadius="0dp"
         />
 
     <Button
@@ -119,6 +134,7 @@
         android:text="@string/change_password"
         android:textStyle="bold"
         android:textSize="17sp"
+        app:cornerRadius="0dp"
         />
 
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.imit.smallMatfak
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class NewPasswordActivity : AppCompatActivity(){
@@ -8,5 +10,14 @@ class NewPasswordActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_password)
 
+        val buttonBack: ImageButton = findViewById(R.id.new_password_activity_activity_back)
+        buttonBack.setOnClickListener {
+            startActivity(Intent(this, RestoreCodeActivity::class.java))
+        }
+
+        val buttonHome: ImageButton = findViewById(R.id.new_password_activity_home)
+        buttonHome.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 }
