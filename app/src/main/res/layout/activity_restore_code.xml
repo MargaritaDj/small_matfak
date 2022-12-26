@@ -47,6 +47,8 @@
         android:layout_marginTop="20dp"
         android:inputType="number"
         android:imeOptions="actionNext"
+        android:paddingStart="15dp"
+        android:textSize="50sp"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
@@ -61,6 +63,8 @@
         android:layout_marginTop="20dp"
         android:inputType="number"
         android:imeOptions="actionNext"
+        android:paddingStart="15dp"
+        android:textSize="50sp"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
@@ -75,6 +79,8 @@
         android:background="@color/white"
         android:imeOptions="actionNext"
         android:inputType="number"
+        android:paddingStart="15dp"
+        android:textSize="50sp"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -87,6 +93,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:inputType="number"
+        android:paddingStart="15dp"
+        android:textSize="50sp"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
