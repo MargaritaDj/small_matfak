@@ -1,18 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:scaleType="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/main_activity_background_login"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:alpha="0.7"
+        android:layout_centerInParent="true"
+        android:background="@color/grey_blue"
+        tools:ignore="MissingConstraints"
+         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/main_activity_phone"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_alignTop="@id/main_activity_background_login"
+        android:background="@color/white"
+        android:hint="@string/login"
+        android:paddingStart="20dp"
+        android:textColorHint="@color/color_hint"
+        android:inputType="phone"
+         />
+
+    <EditText
+        android:id="@+id/main_activity_password"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/main_activity_phone"
+        android:background="@color/white"
+        android:hint="@string/password"
+        android:paddingStart="20dp"
+        android:textColorHint="@color/color_hint"
+        android:inputType="textPassword"
+        />
+
+    <ImageButton
+        android:id="@+id/main_activity_button_eye_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@id/main_activity_password"
+        android:layout_alignBottom="@id/main_activity_password"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/icon_close_eye"
+        android:alpha="0.7"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="158dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@id/main_activity_login_button"
+        android:layout_alignTop="@id/main_activity_login_button"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/main_activity_login_button"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/main_activity_password"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/login_button"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/main_activity_forgot_password"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/main_activity_login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="monospace"
+        android:text="@string/forgot_password"
+        android:textAllCaps="false"
+        android:textColor="@color/color_hint"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck" />
+</RelativeLayout>

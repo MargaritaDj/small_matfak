@@ -25,6 +25,19 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity android:name=".screens.ForgotPasswordActivity"
+            android:label="Preferences">
+            </activity>
+
+        <activity android:name=".screens.RestoreCodeActivity"
+            android:label="Preferences">
+        </activity>
+
+        <activity android:name=".screens.NewPasswordActivity"
+            android:label="Preferences">
+        </activity>
+
     </application>
 
 </manifest>

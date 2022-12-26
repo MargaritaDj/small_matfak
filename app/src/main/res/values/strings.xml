@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">mm</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="restore_password">Восстановление пароля</string>
+    <string name="phone">Телефон</string>
+    <string name="get_code">Получить код</string>
+    <string name="code_from_sms">Введите код из смс</string>
+    <string name="change_password">Сменить пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="repeat_new_password">Повторите пароль</string>
+    <string name="done_button">Готово</string>
 </resources>
