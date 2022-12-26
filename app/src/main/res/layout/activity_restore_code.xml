@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:scaleType="center"
-    tools:context=".RestoreCodeActivity">
+    tools:context=".screens.RestoreCodeActivity">
 
     <ImageView
         android:id="@+id/restore_activity_background_login"

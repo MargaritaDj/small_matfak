@@ -26,15 +26,15 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".ForgotPasswordActivity"
+        <activity android:name=".screens.ForgotPasswordActivity"
             android:label="Preferences">
             </activity>
 
-        <activity android:name=".RestoreCodeActivity"
+        <activity android:name=".screens.RestoreCodeActivity"
             android:label="Preferences">
         </activity>
 
-        <activity android:name=".NewPasswordActivity"
+        <activity android:name=".screens.NewPasswordActivity"
             android:label="Preferences">
         </activity>
 
