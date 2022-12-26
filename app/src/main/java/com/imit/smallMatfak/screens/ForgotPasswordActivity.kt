@@ -3,10 +3,12 @@ package com.imit.smallMatfak.screens
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.imit.smallMatfak.MainActivity
 import com.imit.smallMatfak.R
+import com.imit.smallMatfak.utils.UtilsView
 
 class ForgotPasswordActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,5 +29,8 @@ class ForgotPasswordActivity : AppCompatActivity(){
         buttonHome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+        val editTextPhone: EditText = findViewById(R.id.forgot_activity_phone)
+        UtilsView.startPhone(editTextPhone)
     }
 }

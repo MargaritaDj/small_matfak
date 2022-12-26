@@ -30,6 +30,7 @@
         android:paddingStart="20dp"
         android:textColorHint="@color/color_hint"
         android:inputType="phone"
+        android:maxLength="12"
          />
 
     <EditText
@@ -47,7 +48,7 @@
         />
 
     <ImageButton
-        android:id="@+id/main_activity_button_eye_close"
+        android:id="@+id/main_activity_button_eye"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignEnd="@id/main_activity_password"
@@ -56,6 +57,7 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/icon_close_eye"
         android:alpha="0.7"
+        android:tag="1"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <androidx.cardview.widget.CardView

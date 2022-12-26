@@ -64,6 +64,7 @@
         android:imeOptions="actionNext"
         android:paddingStart="15dp"
         android:textSize="50sp"
+        android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
@@ -80,6 +81,7 @@
         android:imeOptions="actionNext"
         android:paddingStart="15dp"
         android:textSize="50sp"
+        android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
@@ -96,6 +98,7 @@
         android:inputType="number"
         android:paddingStart="15dp"
         android:textSize="50sp"
+        android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -110,6 +113,7 @@
         android:inputType="number"
         android:paddingStart="15dp"
         android:textSize="50sp"
+        android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
