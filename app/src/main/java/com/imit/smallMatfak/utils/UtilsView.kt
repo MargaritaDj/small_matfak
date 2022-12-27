@@ -44,22 +44,30 @@ object UtilsView {
 
     fun switchCellsCode(
         editText1: EditText, editText2: EditText,
-        editText3: EditText, editText4: EditText
+        editText3: EditText, editText4: EditText,
+        layoutText1: TextInputLayout, layoutText2: TextInputLayout,
+        layoutText3: TextInputLayout, layoutText4: TextInputLayout
     ) {
         editText1.addTextChangedListener {
+            layoutText1.error = ""
             if (editText1.text.toString() != "") {
                 editText2.requestFocus()
             }
         }
         editText2.addTextChangedListener {
+            layoutText2.error = ""
             if (editText2.text.toString() != "") {
                 editText3.requestFocus()
             }
         }
         editText3.addTextChangedListener {
+            layoutText3.error = ""
             if (editText3.text.toString() != "") {
                 editText4.requestFocus()
             }
+        }
+        editText4.addTextChangedListener {
+            layoutText4.error = ""
         }
     }
 

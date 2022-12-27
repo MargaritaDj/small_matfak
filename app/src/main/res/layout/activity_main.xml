@@ -60,6 +60,7 @@
         android:hint="@string/password"
         android:paddingStart="20dp"
         android:inputType="textPassword"
+        android:maxLength="15"
         />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +83,7 @@
         android:backgroundTint="@color/shadow_button"
         android:layout_alignStart="@id/main_activity_login_button"
         android:layout_alignTop="@id/main_activity_login_button"
+        android:layout_below="@id/main_activity_password"
         android:layout_marginTop="6dp"
         app:cardCornerRadius="0dp"
         />

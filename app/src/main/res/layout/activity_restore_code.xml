@@ -51,71 +51,110 @@
         android:layout_marginTop="80dp"
         />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/restore_activity_cell_code1"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/restore_activity_restore_password"
         android:layout_alignStart="@id/restore_activity_background_login"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        app:boxStrokeWidth="3dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/restore_activity_cell_code1_text"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:paddingStart="15dp"
+        android:paddingTop="0dp"
         android:inputType="number"
         android:imeOptions="actionNext"
-        android:paddingStart="15dp"
         android:textSize="50sp"
         android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/restore_activity_cell_code2"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/restore_activity_restore_password"
         android:layout_toEndOf="@id/restore_activity_cell_code1"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        app:boxStrokeWidth="3dp">
+    <EditText
+        android:id="@+id/restore_activity_cell_code2_text"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:background="@color/white"
         android:inputType="number"
         android:imeOptions="actionNext"
         android:paddingStart="15dp"
+        android:paddingTop="0dp"
         android:textSize="50sp"
         android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/restore_activity_cell_code3"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/restore_activity_restore_password"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@id/restore_activity_cell_code2"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        app:boxStrokeWidth="3dp">
+
+    <EditText
+        android:id="@+id/restore_activity_cell_code3_text"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
         android:background="@color/white"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:paddingStart="15dp"
+        android:paddingTop="0dp"
         android:textSize="50sp"
         android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/restore_activity_cell_code4"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/restore_activity_restore_password"
         android:layout_toEndOf="@id/restore_activity_cell_code3"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        app:boxStrokeWidth="3dp">
+
+    <EditText
+        android:id="@+id/restore_activity_cell_code4_text"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:background="@color/white"
         android:inputType="number"
         android:paddingStart="15dp"
+        android:paddingTop="0dp"
         android:textSize="50sp"
         android:maxLength="1"
         tools:ignore="SpeakableTextPresentCheck"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="218dp"
@@ -131,7 +170,7 @@
         android:id="@+id/restore_activity_change_button"
         android:layout_width="210dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/restore_activity_cell_code1"
         android:backgroundTint="@color/color_buttons"
