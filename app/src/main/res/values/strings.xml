@@ -12,4 +12,13 @@
     <string name="new_password">Новый пароль</string>
     <string name="repeat_new_password">Повторите пароль</string>
     <string name="done_button">Готово</string>
+    <string name="make_room">Создать комнату</string>
+    <string name="list_tasks">Список задач</string>
+    <string name="regulations_game">Правила игры</string>
+    <string name="exit">Выйти</string>
+    <string name="play">Играть</string>
+    <string name="settings">Настройки</string>
+    <string name="choose_character">Выбрать персонажа</string>
+    <string name="change_data">Изменить данные</string>
+    <string name="statistics">Статистика</string>
 </resources>

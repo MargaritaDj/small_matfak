@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/personal_area_student_name"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@color/grey_blue"
+        android:layout_alignParentTop="true"
+        android:alpha="0.7"
+        android:layout_marginTop="110dp">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/personal_area_student_buttons"
+        android:layout_width="300dp"
+        android:layout_height="355dp"
+        android:background="@color/grey_blue"
+        android:layout_centerInParent="true"
+        android:alpha="0.7"
+        android:layout_below="@id/personal_area_student_name"
+        android:layout_marginTop="15dp">
+    </ImageView>
+
+    <Button
+        android:id="@+id/personal_area_student_play"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/color_buttons"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@id/personal_area_student_buttons"
+        android:layout_marginTop="15dp"
+        android:text="@string/play"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_student_regulations_game"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/personal_area_student_play"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/regulations_game"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_student_settings"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/personal_area_student_regulations_game"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/settings"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_student_exit"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/personal_area_student_settings"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/exit"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+</RelativeLayout>

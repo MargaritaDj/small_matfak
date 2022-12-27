@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:id="@+id/personal_area_home"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/home"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp">
+    </ImageButton>
+
+    <ImageView
+        android:id="@+id/personal_area_teacher_name"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="80dp"
+        android:alpha="0.7"
+        android:background="@color/grey_blue"></ImageView>
+
+    <ImageView
+        android:id="@+id/personal_area_teacher_buttons"
+        android:layout_width="300dp"
+        android:layout_height="485dp"
+        android:layout_below="@id/personal_area_teacher_name"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:alpha="0.7"
+        android:background="@color/grey_blue">
+    </ImageView>
+
+    <ImageButton
+        android:id="@+id/personal_area_teacher_back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@id/personal_area_teacher_buttons"
+        android:layout_alignTop="@id/personal_area_teacher_buttons"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back">
+    </ImageButton>
+
+    <Button
+        android:id="@+id/personal_area_teacher_make_room"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@id/personal_area_teacher_buttons"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/make_room"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_teacher_list_tasks"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/personal_area_teacher_make_room"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/list_tasks"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_teacher_regulations_game"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/personal_area_teacher_list_tasks"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/regulations_game"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_teacher_settings"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/personal_area_teacher_regulations_game"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/settings"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <Button
+        android:id="@+id/personal_area_teacher_exit"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/personal_area_teacher_settings"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/exit"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+</RelativeLayout>
