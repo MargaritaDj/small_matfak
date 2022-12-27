@@ -5,6 +5,7 @@ import android.text.method.PasswordTransformationMethod
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.core.widget.addTextChangedListener
+import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.R
 
 object UtilsView {
@@ -59,6 +60,12 @@ object UtilsView {
             if (editText3.text.toString() != "") {
                 editText4.requestFocus()
             }
+        }
+    }
+
+    fun removeErrorOnFocus(editText: EditText, layoutText: TextInputLayout){
+        editText.addTextChangedListener {
+                layoutText.error = ""
         }
     }
 }
