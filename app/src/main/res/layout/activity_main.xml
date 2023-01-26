@@ -18,45 +18,64 @@
         tools:ignore="MissingConstraints"
          />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_activity_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/main_activity_background_login"
+        android:textColorHint="@color/color_hint"
+        android:layout_marginTop="50dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/main_activity_phone_text"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_alignTop="@id/main_activity_background_login"
+        android:paddingStart="20dp"
         android:background="@color/white"
         android:hint="@string/login"
-        android:paddingStart="20dp"
-        android:textColorHint="@color/color_hint"
         android:inputType="phone"
-         />
+        android:maxLength="12"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_activity_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/main_activity_phone"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/color_hint"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@android:color/transparent"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/main_activity_password_text"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/main_activity_phone"
         android:background="@color/white"
         android:hint="@string/password"
         android:paddingStart="20dp"
-        android:textColorHint="@color/color_hint"
         android:inputType="textPassword"
+        android:maxLength="15"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
-        android:id="@+id/main_activity_button_eye_close"
+        android:id="@+id/main_activity_button_eye"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignEnd="@id/main_activity_password"
         android:layout_alignBottom="@id/main_activity_password"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="35dp"
         android:background="@drawable/icon_close_eye"
         android:alpha="0.7"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+        android:tag="1"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="158dp"
@@ -64,6 +83,7 @@
         android:backgroundTint="@color/shadow_button"
         android:layout_alignStart="@id/main_activity_login_button"
         android:layout_alignTop="@id/main_activity_login_button"
+        android:layout_below="@id/main_activity_password"
         android:layout_marginTop="6dp"
         app:cardCornerRadius="0dp"
         />
@@ -72,7 +92,7 @@
         android:id="@+id/main_activity_login_button"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/main_activity_password"
         android:backgroundTint="@color/color_buttons"
@@ -80,7 +100,7 @@
         android:textStyle="bold"
         android:textSize="17sp"
         app:cornerRadius="0dp"
-        />
+        tools:ignore="NotSibling" />
 
     <Button
         android:id="@+id/main_activity_forgot_password"

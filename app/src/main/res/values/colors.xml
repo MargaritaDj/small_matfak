@@ -11,4 +11,5 @@
     <color name="color_hint">#292727</color>
     <color name="color_buttons">#82A781</color>
     <color name="shadow_button">#556449</color>
+    <color name="primary">#2A5C1D</color>
 </resources>
