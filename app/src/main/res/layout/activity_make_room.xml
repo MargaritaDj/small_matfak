@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -9,10 +10,10 @@
         android:id="@+id/personal_area_home"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:background="@drawable/home"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp">
-    </ImageButton>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/home"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></ImageButton>
 
     <ImageView
         android:id="@+id/make_room_background"
@@ -31,8 +32,8 @@
         android:layout_alignTop="@+id/make_room_background"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/back">
-    </ImageButton>
+        android:background="@drawable/back"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></ImageButton>
 
     <EditText
         android:id="@+id/make_room_password"
