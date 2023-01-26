@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import com.google.android.material.textfield.TextInputLayout
+import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.screens.ForgotPasswordActivity
 import com.imit.smallMatfak.utils.UtilsView
 import com.imit.smallMatfak.validator.Validator
