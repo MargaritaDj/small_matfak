@@ -1,11 +1,8 @@
 package com.imit.smallMatfak.validator
 
-import android.content.SharedPreferences.Editor
 import android.widget.EditText
-import androidx.core.view.setPadding
 import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.exceptions.AppErrorCode
-import org.w3c.dom.Text
 import java.util.regex.Pattern
 
 object Validator {
