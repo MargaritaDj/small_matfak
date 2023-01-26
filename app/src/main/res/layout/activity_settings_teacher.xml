@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/settings_teacher_background"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:background="@color/grey_blue"
+        android:layout_centerInParent="true"
+        android:alpha="0.7">
+    </ImageView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/settings_teacher_choose_character"
+        android:layout_alignTop="@+id/settings_teacher_choose_character"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/settings_teacher_choose_character"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/settings_teacher_background"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/choose_character"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/settings_teacher_change_data"
+        android:layout_alignTop="@+id/settings_teacher_change_data"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/settings_teacher_change_data"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/settings_teacher_choose_character"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/change_data"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/settings_teacher_statistics"
+        android:layout_alignTop="@+id/settings_teacher_statistics"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/settings_teacher_statistics"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/settings_teacher_change_data"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/statistics"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+</RelativeLayout>

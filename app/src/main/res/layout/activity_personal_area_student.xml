@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:id="@+id/personal_area_home"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/home"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp">
+    </ImageButton>
+
+    <ImageView
+        android:id="@+id/personal_area_student_name"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="110dp"
+        android:alpha="0.7"
+        android:background="@color/grey_blue">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/personal_area_student_buttons"
+        android:layout_width="300dp"
+        android:layout_height="365dp"
+        android:layout_below="@id/personal_area_student_name"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:alpha="0.7"
+        android:background="@color/grey_blue"></ImageView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/personal_area_student_play"
+        android:layout_alignTop="@+id/personal_area_student_play"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/personal_area_student_play"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@id/personal_area_student_buttons"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/play"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"></Button>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/personal_area_student_regulations_game"
+        android:layout_alignTop="@+id/personal_area_student_regulations_game"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/personal_area_student_regulations_game"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/personal_area_student_play"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/regulations_game"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/personal_area_student_settings"
+        android:layout_alignTop="@+id/personal_area_student_settings"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/personal_area_student_settings"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/personal_area_student_regulations_game"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/settings"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="258dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/shadow_button"
+        android:layout_alignStart="@+id/personal_area_student_exit"
+        android:layout_alignTop="@+id/personal_area_student_exit"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="0dp"
+        />
+
+    <Button
+        android:id="@+id/personal_area_student_exit"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/personal_area_student_settings"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/color_buttons"
+        android:text="@string/exit"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:cornerRadius="0dp">
+    </Button>
+
+</RelativeLayout>
