@@ -8,14 +8,24 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import com.google.android.material.textfield.TextInputLayout
+import com.imit.smallMatfak.database.Database
+import com.imit.smallMatfak.exceptions.AppErrorCode
+import com.imit.smallMatfak.exceptions.AppExceptionLogin
+import com.imit.smallMatfak.exceptions.AppExceptionPassword
 import com.imit.smallMatfak.model.Student
+import com.imit.smallMatfak.model.Teacher
+import com.imit.smallMatfak.model.User
 import com.imit.smallMatfak.screens.ForgotPasswordActivity
+import com.imit.smallMatfak.screens.PersonalAreaStudentActivity
+import com.imit.smallMatfak.screens.PersonalAreaTeacherActivity
 import com.imit.smallMatfak.utils.UtilsView
 import com.imit.smallMatfak.validator.Validator
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        addDatabase()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -26,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val buttonEye: ImageButton = findViewById(R.id.main_activity_button_eye)
 
         val layoutLogin: TextInputLayout = findViewById(R.id.main_activity_phone)
-        val editTextLogin:EditText = findViewById(R.id.main_activity_phone_text)
+        val editTextLogin: EditText = findViewById(R.id.main_activity_phone_text)
         UtilsView.removeErrorOnFocus(editTextLogin, layoutLogin)
         UtilsView.startPhone(editTextLogin)
 
@@ -37,8 +47,42 @@ class MainActivity : AppCompatActivity() {
 
         val buttonLogin: Button = findViewById(R.id.main_activity_login_button)
         buttonLogin.setOnClickListener {
-            Validator.validationLogin(layoutLogin, editTextLogin)
-            Validator.validationPassword(layoutPassword, editTextPassword)
+            if (Validator.validationLogin(layoutLogin, editTextLogin) &&
+                Validator.validationPassword(layoutPassword, editTextPassword)
+            ) {
+                try{
+                    val user = Database.getUserByLogin(editTextLogin, editTextPassword)
+                    if(user::class.java == Student::class.java){
+                        val intent = Intent(this, PersonalAreaStudentActivity::class.java)
+                        intent.putExtra("user", user)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(this, PersonalAreaTeacherActivity::class.java)
+                        intent.putExtra("user", user)
+                        startActivity(intent)
+                    }
+                } catch (exLogin: AppExceptionLogin){
+                    layoutLogin.error = exLogin.appErrorCode.errorString
+                }  catch (exPassword: AppExceptionPassword){
+                    layoutPassword.error = exPassword.appErrorCode.errorString
+                }
+
+            }
         }
+    }
+
+    private fun addDatabase() {
+
+        val student = Student(
+            "Маргарита", "Джинджолия", "Сергеевна", 0,
+            "9507999649", "123456", 11
+        )
+        val teacher = Teacher(
+            "Ксения", "Филина", "Евгеньевна", 0,
+            "9502181359", "654321", "filina@gmail.com"
+        )
+
+        Database.loginUsers = Database.loginUsers.plus(Pair(student.login, student))
+        Database.loginUsers = Database.loginUsers.plus(Pair(teacher.login, teacher))
     }
 }

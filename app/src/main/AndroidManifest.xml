@@ -38,6 +38,14 @@
             android:label="Preferences">
         </activity>
 
+        <activity android:name=".screens.PersonalAreaStudentActivity"
+            android:label="Preferences">
+        </activity>
+
+        <activity android:name=".screens.PersonalAreaTeacherActivity"
+            android:label="Preferences">
+        </activity>
+
     </application>
 
 </manifest>

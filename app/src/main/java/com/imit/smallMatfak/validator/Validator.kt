@@ -3,6 +3,7 @@ package com.imit.smallMatfak.validator
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.exceptions.AppErrorCode
+import com.imit.smallMatfak.exceptions.AppException
 import java.util.regex.Pattern
 
 object Validator {
@@ -12,6 +13,7 @@ object Validator {
 
         if(textLogin.length == 2 || textLogin.isEmpty()){
             loginLayout.error = AppErrorCode.EMPTY_LOGIN.errorString
+            //throw AppException(AppErrorCode.EMPTY_LOGIN)
             return false
         }
         if(!Pattern.matches("\\+7[0-9]{10}", textLogin)){

@@ -45,6 +45,7 @@
         android:text="@string/code_from_sms"
         android:layout_alignTop="@id/restore_activity_background_login"
         android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
         android:textSize="21sp"
         android:textColor="@color/color_hint"
         android:textStyle="bold"
