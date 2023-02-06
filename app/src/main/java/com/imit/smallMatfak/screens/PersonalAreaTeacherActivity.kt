@@ -30,5 +30,10 @@ class PersonalAreaTeacherActivity: AppCompatActivity() {
         nameTextView.text = user?.firstName
         lastNameTextView.text = user?.lastName
         patronymicTextView.text = user?.patronymic
+
+        val settingsMenuView: ImageButton = findViewById(R.id.personal_area_teacher_settings)
+        settingsMenuView.setOnClickListener {
+            showPopupSettings(this, settingsMenuView)
+        }
     }
 }
