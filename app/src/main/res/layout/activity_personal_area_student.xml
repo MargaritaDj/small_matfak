@@ -4,47 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
-
-    <ImageButton
-        android:id="@+id/personal_area_student_logout"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/exit"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
-    </ImageButton>
+    android:background="@color/background">
 
     <ImageButton
         android:id="@+id/personal_area_student_settings"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/menu"
+        android:background="@drawable/setting"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageView
-        android:id="@+id/personal_area_student_buttons"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/personal_area_student_background"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_alignTop="@id/personal_area_student_hero"
-        android:layout_alignBottom="@id/personal_area_student_regulations_game_shadow"
-        android:layout_marginBottom="-15dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:alpha="0.7"
-        android:background="@color/grey_blue" />
+        android:layout_marginTop="65dp"
+        android:background="@drawable/background_area" />
 
 
     <ImageButton
         android:id="@+id/personal_area_student_hero"
-        android:layout_width="140dp"
+        android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/feiry"
         tools:ignore="SpeakableTextPresentCheck"
@@ -52,96 +39,191 @@
 
     <TextView
         android:id="@+id/personal_area_student_name"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/personal_area_student_hero"
         android:layout_marginTop="5dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
+        android:textSize="18sp"
         android:letterSpacing="0.07"
         android:textStyle="bold"
-        android:text=""
-        >
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:text="Иван">
     </TextView>
 
     <TextView
         android:id="@+id/personal_area_student_last_name"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/personal_area_student_name"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="-10dp"
+        android:textSize="18sp"
         android:letterSpacing="0.07"
         android:textStyle="bold"
-        android:text=""
-        >
-    </TextView>
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:text="Иванов"
+        />
 
     <TextView
-        android:id="@+id/personal_area_student_area"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:letterSpacing="0.07"
-        android:text="@string/personal_area"
-        >
-    </TextView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="258dp"
-        android:layout_height="70dp"
-        android:backgroundTint="@color/shadow_button"
-        android:layout_alignStart="@+id/personal_area_student_play"
-        android:layout_alignTop="@+id/personal_area_student_play"
-        android:layout_marginTop="6dp"
-        app:cardCornerRadius="0dp"
-        />
-
-    <Button
-        android:id="@+id/personal_area_student_play"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:id="@+id/personal_area_student_level"
+        android:layout_width="210dp"
+        android:layout_height="20dp"
         android:layout_below="@id/personal_area_student_last_name"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:backgroundTint="@color/color_buttons"
-        android:text="@string/play"
-        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:letterSpacing="0.07"
         android:textStyle="bold"
-        app:cornerRadius="0dp" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/personal_area_student_regulations_game_shadow"
-        android:layout_width="258dp"
-        android:layout_height="70dp"
-        android:backgroundTint="@color/shadow_button"
-        android:layout_alignStart="@+id/personal_area_student_regulations_game"
-        android:layout_alignTop="@+id/personal_area_student_regulations_game"
-        android:layout_marginTop="6dp"
-        app:cardCornerRadius="0dp"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:text=""
         />
 
-    <Button
+    <TextView
+        android:id="@+id/personal_area_student_level_count"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/personal_area_student_last_name"
+        android:layout_alignEnd="@id/personal_area_student_background"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:letterSpacing="0.07"
+        android:textStyle="bold"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:text=""
+        />
+
+    <ImageView
+        android:id="@+id/personal_area_student_image_progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/personal_area_student_level_count"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/progress_bar"
+        />
+
+    <ProgressBar
+        android:id="@+id/personal_area_student_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/personal_area_student_level_count"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:max="7"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:progress="5"
+        android:progressTint="@color/progress_bar"
+        android:scaleY="2" />
+
+    <TextView
+        android:id="@+id/personal_area_student_score"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/personal_area_student_image_progress_bar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/minecraftia_regular"
+        android:letterSpacing="0.07"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/personal_area_student_play"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/personal_area_student_background"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/personal_area_student_background"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/minecraftia_regular"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="10"
+        android:shadowRadius="5"
+        android:text="@string/play"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <ImageButton
         android:id="@+id/personal_area_student_regulations_game"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_below="@id/personal_area_student_play"
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
-        android:backgroundTint="@color/color_buttons"
+        android:background="@drawable/button"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/personal_area_student_play"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
         android:text="@string/regulations_game"
-        android:textSize="17sp"
+        android:textSize="28sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:shadowColor="@color/black"
+        android:shadowRadius="5"
+        android:shadowDx="10"
         android:textStyle="bold"
-        app:cornerRadius="0dp" />
+        android:paddingTop="10dp"
+        />
+
+    <ImageButton
+        android:id="@+id/personal_area_student_logout"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/personal_area_student_regulations_game"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/personal_area_student_regulations_game"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/exit"
+        android:textSize="28sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:shadowColor="@color/black"
+        android:shadowRadius="5"
+        android:shadowDx="10"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        />
 
 </RelativeLayout>

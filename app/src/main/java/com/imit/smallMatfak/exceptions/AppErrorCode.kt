@@ -9,7 +9,8 @@ enum class AppErrorCode(errorString: String) {
     EMPTY_PHONE("Введите номер телефона"),
     WRONG_PHONE("Неверный формат номера"),
     WRONG_CODE_FROM_SMS(" "),
-    SHORT_PASSWORD("Пароль должен содержать не менее 6 символов");
+    SHORT_PASSWORD("Пароль должен содержать не менее 6 символов"),
+    NOT_CONTAINS_TOKEN("Пользователь не найден");
 
     val errorString: String = errorString
 }

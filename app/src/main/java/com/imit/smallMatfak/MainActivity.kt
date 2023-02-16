@@ -15,9 +15,11 @@ import com.imit.smallMatfak.exceptions.AppExceptionPassword
 import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.model.Teacher
 import com.imit.smallMatfak.model.User
+import com.imit.smallMatfak.repositories.UserRepository
 import com.imit.smallMatfak.screens.ForgotPasswordActivity
 import com.imit.smallMatfak.screens.PersonalAreaStudentActivity
 import com.imit.smallMatfak.screens.PersonalAreaTeacherActivity
+import com.imit.smallMatfak.usecase.UserUseCase
 import com.imit.smallMatfak.utils.UtilsView
 import com.imit.smallMatfak.validator.Validator
 
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val userUseCase = UserUseCase(UserRepository())
 
         val buttonForgotPassword: Button = findViewById(R.id.main_activity_forgot_password)
         buttonForgotPassword.setOnClickListener {
@@ -50,9 +53,13 @@ class MainActivity : AppCompatActivity() {
             if (Validator.validationLogin(layoutLogin, editTextLogin) &&
                 Validator.validationPassword(layoutPassword, editTextPassword)
             ) {
-                try{
-                    val user = Database.getUserByLogin(editTextLogin, editTextPassword)
-                    if(user::class.java == Student::class.java){
+                try {
+                   // val user = Database.getUserByLogin(editTextLogin.text.toString())
+                    val user = userUseCase.getUserByLogin(editTextLogin.text.toString())
+                    if (user.password != editTextPassword.text.toString()) {
+                        throw AppExceptionPassword(AppErrorCode.WRONG_PASSWORD)
+                    }
+                    if (user::class.java == Student::class.java) {
                         val intent = Intent(this, PersonalAreaStudentActivity::class.java)
                         intent.putExtra("user", user)
                         startActivity(intent)
@@ -61,9 +68,9 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("user", user)
                         startActivity(intent)
                     }
-                } catch (exLogin: AppExceptionLogin){
+                } catch (exLogin: AppExceptionLogin) {
                     layoutLogin.error = exLogin.appErrorCode.errorString
-                }  catch (exPassword: AppExceptionPassword){
+                } catch (exPassword: AppExceptionPassword) {
                     layoutPassword.error = exPassword.appErrorCode.errorString
                 }
 
@@ -75,14 +82,14 @@ class MainActivity : AppCompatActivity() {
 
         val student = Student(
             "Маргарита", "Джинджолия", "Сергеевна", 0,
-            "9507999649", "123456", 11
+            "9507999649", "123456", 11, 3, 19
         )
         val teacher = Teacher(
             "Ксения", "Филина", "Евгеньевна", 0,
-            "9502181359", "654321", "filina@gmail.com"
+            "9502181359", "654321"
         )
 
-        Database.loginUsers = Database.loginUsers.plus(Pair(student.login, student))
-        Database.loginUsers = Database.loginUsers.plus(Pair(teacher.login, teacher))
+        Database.loginUsers.put(student.login, student)
+        Database.loginUsers.put(teacher.login, teacher)
     }
 }

@@ -13,7 +13,6 @@ object Validator {
 
         if(textLogin.length == 2 || textLogin.isEmpty()){
             loginLayout.error = AppErrorCode.EMPTY_LOGIN.errorString
-            //throw AppException(AppErrorCode.EMPTY_LOGIN)
             return false
         }
         if(!Pattern.matches("\\+7[0-9]{10}", textLogin)){

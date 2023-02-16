@@ -27,6 +27,7 @@
         android:textColorHint="@color/color_hint"
         android:layout_marginTop="50dp"
         app:errorEnabled="true"
+        app:errorTextAppearance="@style/ErrorText"
         app:errorIconDrawable="@android:color/transparent"
         >
     <com.google.android.material.textfield.TextInputEditText
@@ -71,8 +72,8 @@
         android:layout_alignEnd="@id/main_activity_password"
         android:layout_alignBottom="@id/main_activity_password"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="35dp"
-        android:background="@drawable/icon_close_eye"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/icon_open_eye"
         android:alpha="0.7"
         android:tag="1"
         tools:ignore="NotSibling,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />

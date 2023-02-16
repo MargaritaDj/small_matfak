@@ -1,7 +1,7 @@
 package com.imit.smallMatfak.model
 
 class Teacher(firstName: String, lastName: String, patronymic: String, imageHero: Int,
-              login: String, password: String, var email: String,
+              login: String, password: String,
               var listClasses: ArrayList<Int> = arrayListOf(),
               var listTasks: ArrayList<Task> = arrayListOf()
 )

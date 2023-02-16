@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/rules_background"
+        android:layout_width="300dp"
+        android:layout_height="550dp"
+        android:background="@drawable/background_rules"
+        android:layout_centerInParent="true"/>
+
+    <ImageButton
+        android:id="@+id/rules_cross"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/rules_background"
+        android:layout_alignEnd="@id/rules_background"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/cross"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/rules_text"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rules_cross"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:letterSpacing="0.07"
+        android:padding="5dp"
+        android:fontFamily="@font/minecraftia_regular"
+        />
+
+    <ImageButton
+        android:id="@+id/rules_arrow_left"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/rules_background"
+        android:layout_alignStart="@id/rules_background"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/arrow_left"
+        android:alpha="0.4"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/rules_arrow_right"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/rules_background"
+        android:layout_alignEnd="@id/rules_background"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/arrow_right"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+</RelativeLayout>

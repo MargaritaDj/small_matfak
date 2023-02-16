@@ -30,11 +30,11 @@ object UtilsView {
     fun changePasswordVisibility(editText: EditText, button: ImageButton) {
         button.setOnClickListener {
             if (button.tag == "1") {
-                button.setBackgroundResource(R.drawable.icon_open_eye)
+                button.setBackgroundResource(R.drawable.icon_close_eye)
                 editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                 button.tag = "2"
             } else {
-                button.setBackgroundResource(R.drawable.icon_close_eye)
+                button.setBackgroundResource(R.drawable.icon_open_eye)
                 editText.transformationMethod = PasswordTransformationMethod.getInstance()
                 button.tag = "1"
             }
