@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -32,11 +33,10 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/color_buttons"
-        android:text="@string/choose_character"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:cornerRadius="0dp">
-    </Button>
+        app:cornerRadius="0dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="258dp"

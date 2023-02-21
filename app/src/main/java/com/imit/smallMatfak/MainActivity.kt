@@ -1,7 +1,9 @@
 package com.imit.smallMatfak
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val userUseCase = UserUseCase(UserRepository())
+        val sharedPreferences: SharedPreferences = getSharedPreferences("APP_SHARED_PREF",
+            Context.MODE_PRIVATE)
 
         val buttonForgotPassword: Button = findViewById(R.id.main_activity_forgot_password)
         buttonForgotPassword.setOnClickListener {
@@ -48,17 +52,24 @@ class MainActivity : AppCompatActivity() {
         UtilsView.removeErrorOnFocus(editTextPassword, layoutPassword)
         UtilsView.changePasswordVisibility(editTextPassword, buttonEye)
 
-        val buttonLogin: Button = findViewById(R.id.main_activity_login_button)
+        val buttonLogin: ImageButton = findViewById(R.id.main_activity_login_button)
+
+        val userLoginSharedPreferences = sharedPreferences.getString("userLogin", "") ?: ""
+        val userPasswordSharedPreferences = sharedPreferences.getString("userPassword", "") ?: ""
+
         buttonLogin.setOnClickListener {
             if (Validator.validationLogin(layoutLogin, editTextLogin) &&
                 Validator.validationPassword(layoutPassword, editTextPassword)
             ) {
                 try {
-                   // val user = Database.getUserByLogin(editTextLogin.text.toString())
                     val user = userUseCase.getUserByLogin(editTextLogin.text.toString())
                     if (user.password != editTextPassword.text.toString()) {
                         throw AppExceptionPassword(AppErrorCode.WRONG_PASSWORD)
                     }
+                    val editorSharedPreferences = sharedPreferences.edit()
+                    editorSharedPreferences.putString("userLogin", editTextLogin.text.toString())
+                    editorSharedPreferences.putString("userPassword", editTextPassword.text.toString())
+                    editorSharedPreferences.apply()
                     if (user::class.java == Student::class.java) {
                         val intent = Intent(this, PersonalAreaStudentActivity::class.java)
                         intent.putExtra("user", user)
@@ -76,16 +87,21 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+        if(userLoginSharedPreferences.isNotEmpty() && userPasswordSharedPreferences.isNotEmpty()){
+            editTextLogin.setText(userLoginSharedPreferences)
+            editTextPassword.setText(userPasswordSharedPreferences)
+            buttonLogin.callOnClick()
+        }
     }
 
     private fun addDatabase() {
 
         val student = Student(
-            "Маргарита", "Джинджолия", "Сергеевна", 0,
+            "Маргарита", "Джинджолия", "Сергеевна", R.drawable.feiry,
             "9507999649", "123456", 11, 3, 19
         )
         val teacher = Teacher(
-            "Ксения", "Филина", "Евгеньевна", 0,
+            "Ксения", "Филина", "Евгеньевна", R.drawable.feiry,
             "9502181359", "654321"
         )
 

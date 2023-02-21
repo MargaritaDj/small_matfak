@@ -33,7 +33,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/feiry"
         tools:ignore="SpeakableTextPresentCheck"
         />
 

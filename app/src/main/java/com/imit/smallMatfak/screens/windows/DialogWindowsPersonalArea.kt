@@ -1,18 +1,30 @@
 package com.imit.smallMatfak.screens.windows
 
 import android.app.Dialog
+import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.View
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.EditText
+import android.widget.GridView
 import android.widget.ImageButton
 import android.widget.TextView
+import com.imit.smallMatfak.screens.windows.Toast
 import com.imit.smallMatfak.R
+import com.imit.smallMatfak.exceptions.AppException
+import com.imit.smallMatfak.model.User
+import com.imit.smallMatfak.repositories.StudentRepository
+import com.imit.smallMatfak.screens.adapter.ImageAdapter
 import com.imit.smallMatfak.screens.dismissDialogWindow
+import com.imit.smallMatfak.usecase.StudentUseCase
 import com.imit.smallMatfak.utils.UtilsView
 import java.io.BufferedReader
-import java.io.InputStreamReader
 
-class DialogWindowsPersonalArea {
+
+class DialogWindowsPersonalArea(val context: Context) {
+    val studentUseCase = StudentUseCase(StudentRepository())
 
     fun showDialogSettings(dialogSettings: Dialog){
         dialogSettings.setContentView(R.layout.window_settings)
@@ -77,7 +89,7 @@ class DialogWindowsPersonalArea {
         while ({ text = bufferedReader.readLine(); text }() != null) {
             stringBuilder.append(text)
         }
-        val stringPages = stringBuilder.toString().split("NULL")
+        val stringPages = stringBuilder.toString().split("|")
 
         var page = 1
         rulesText.text = stringPages[page - 1]
@@ -106,5 +118,39 @@ class DialogWindowsPersonalArea {
                 arrowLeft.alpha = alpha
             }
         }
+    }
+
+    fun showDialogChoiceHero(dialogChoiceHero: Dialog, resources: Resources,
+                             layout: View, user: User, imageHeroButton: ImageButton){
+        dialogChoiceHero.setContentView(R.layout.window_choice_hero)
+        dialogChoiceHero.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialogChoiceHero.setCanceledOnTouchOutside(false)
+        dialogChoiceHero.show()
+
+        val gridHeroes: GridView = dialogChoiceHero.findViewById(R.id.choice_hero_grid)
+        val buttonChoice: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_button)
+        val adapterImage = ImageAdapter(context = context, resources)
+        gridHeroes.adapter = adapterImage
+
+        gridHeroes.onItemClickListener = OnItemClickListener { _, _, pos, _ ->
+            adapterImage.setSelectedPosition(pos)
+            adapterImage.notifyDataSetChanged()
+        }
+
+        buttonChoice.setOnClickListener {
+            val imageHero: Int = adapterImage.getSelectedImageHero() as Int
+            try{
+                studentUseCase.changeImageHero(user, imageHero)
+                Toast.showToastOk(layout, resources.getString(R.string.ok_image_hero), context)
+                dialogChoiceHero.dismiss()
+                imageHeroButton.setBackgroundResource(user.imageHero)
+            } catch (ex: AppException){
+                Toast.showToastError(layout, ex.appErrorCode.errorString, context)
+            }
+
+        }
+
+        val crossButton: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_cross)
+        dismissDialogWindow(dialogChoiceHero, crossButton)
     }
 }
