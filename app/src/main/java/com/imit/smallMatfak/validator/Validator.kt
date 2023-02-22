@@ -4,6 +4,7 @@ import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.exceptions.AppErrorCode
 import com.imit.smallMatfak.exceptions.AppException
+import com.imit.smallMatfak.model.User
 import java.util.regex.Pattern
 
 object Validator {
@@ -34,6 +35,7 @@ object Validator {
         }
         return true
     }
+
 
     fun validationPhone(phoneLayout: TextInputLayout, phone: EditText): Boolean{
         val textPhone = phone.text.toString()
@@ -69,6 +71,26 @@ object Validator {
         }
         if(textPassword.length < 6){
             passwordLayout.error = AppErrorCode.SHORT_PASSWORD.errorString
+            return false
+        }
+        return true
+    }
+
+    fun validationRepeatPassword(repeatPasswordLayout: TextInputLayout, repeatPassword: EditText,
+                                 newPassword: EditText):Boolean{
+        val repeatTextPassword = repeatPassword.text.toString()
+        val newTextPassword = newPassword.text.toString()
+
+        if(repeatTextPassword.isEmpty()){
+            repeatPasswordLayout.error = AppErrorCode.EMPTY_PASSWORD.errorString
+            return false
+        }
+        if(repeatTextPassword.length < 6){
+            repeatPasswordLayout.error = AppErrorCode.WRONG_PASSWORD.errorString
+            return false
+        }
+        if(repeatTextPassword != newTextPassword){
+            repeatPasswordLayout.error = AppErrorCode.WRONG_PASSWORD.errorString
             return false
         }
         return true

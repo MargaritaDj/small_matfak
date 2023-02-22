@@ -7,4 +7,5 @@ interface UserDao {
    fun getUserByToken(token: String): User
    fun addTokenUser(user: User): String
    fun deleteTokenUser(token: String)
+   fun changePassword(user: User, newPassword: String)
 }

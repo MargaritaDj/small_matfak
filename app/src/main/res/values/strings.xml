@@ -13,6 +13,7 @@
 
     <!-- Settings_Text -->
     <string name="change_password">сменить\nпароль</string>
+    <string name="change_hero">сменить\nперсонажа</string>
 
     <!-- Personal_Area_Text -->
     <string name="personal_area">ПРОФИЛЬ</string>
@@ -37,4 +38,5 @@
 
     <!-- Toast -->
     <string name="ok_image_hero">Персонаж успешно изменён</string>
+    <string name="ok_changed_password">Пароль успешно изменён</string>
 </resources>

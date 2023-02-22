@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:drawable="@drawable/arrow_settings"
+        android:drawable="@drawable/arrow_menu"
         android:width="35dp"
         android:height="35dp"
         android:layout_marginTop="20dp"

@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
         val userPasswordSharedPreferences = sharedPreferences.getString("userPassword", "") ?: ""
 
         buttonLogin.setOnClickListener {
-            if (Validator.validationLogin(layoutLogin, editTextLogin) &&
-                Validator.validationPassword(layoutPassword, editTextPassword)
-            ) {
+            val valLogin = Validator.validationLogin(layoutLogin, editTextLogin)
+            val valPassword = Validator.validationPassword(layoutPassword, editTextPassword)
+            if (valLogin && valPassword) {
                 try {
                     val user = userUseCase.getUserByLogin(editTextLogin.text.toString())
                     if (user.password != editTextPassword.text.toString()) {

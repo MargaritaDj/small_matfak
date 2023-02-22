@@ -18,6 +18,7 @@ import com.imit.smallMatfak.MainActivity
 import com.imit.smallMatfak.R
 import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.screens.windows.DialogWindowsPersonalArea
+import com.imit.smallMatfak.screens.windows.TypeDialogMenu
 import com.imit.smallMatfak.utils.UtilsView
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -68,11 +69,16 @@ class PersonalAreaStudentActivity : AppCompatActivity() {
         progressBar.max = scoreExpectation
         progressBar.progress = scoreCurrent
 
-        val dialogWindowsPersonalArea = DialogWindowsPersonalArea(this)
+        val inflater = layoutInflater
+        val container = findViewById<ViewGroup>(R.id.custom_toast_container)
+        val layout: View = inflater.inflate(R.layout.custom_toast, container)
+
+        val dialogWindowsPersonalArea = DialogWindowsPersonalArea(this, layout, user)
+        val itemsSettings = listOf(resources.getString(R.string.change_password), resources.getString(R.string.change_hero))
 
         settingsButton.setOnClickListener {
             val dialogSettings = Dialog(this)
-            dialogWindowsPersonalArea.showDialogSettings(dialogSettings)
+            dialogWindowsPersonalArea.showDialogMenu(dialogSettings, TypeDialogMenu.SETTINGS)
         }
 
         rulesButton.setOnClickListener {
@@ -83,10 +89,7 @@ class PersonalAreaStudentActivity : AppCompatActivity() {
 
         heroButton.setOnClickListener {
             val dialogChoiceHero = Dialog(this)
-            val inflater = layoutInflater
-            val container = findViewById<ViewGroup>(R.id.custom_toast_container)
-            val layout: View = inflater.inflate(R.layout.custom_toast, container)
-            dialogWindowsPersonalArea.showDialogChoiceHero(dialogChoiceHero, resources, layout, user, heroButton)
+            dialogWindowsPersonalArea.showDialogChoiceHero(dialogChoiceHero, heroButton)
         }
 
     }
@@ -98,9 +101,6 @@ fun dismissDialogWindow(dialog: Dialog, cross: ImageButton) {
     }
 }
 
-fun changeImageHero(buttonHero: ImageButton, imageHero: Int){
-
-}
 
 fun showPopupSettings(context: Context, settingsMenuView: View) {
     val popup = PopupMenu(context, settingsMenuView)

@@ -20,4 +20,8 @@ class UserRepository: UserDao {
     override fun deleteTokenUser(token: String) {
         Database.deleteTokenUser(token)
     }
+
+    override fun changePassword(user: User, newPassword: String) {
+        user.password = newPassword
+    }
 }
