@@ -16,7 +16,6 @@ import com.imit.smallMatfak.exceptions.AppExceptionLogin
 import com.imit.smallMatfak.exceptions.AppExceptionPassword
 import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.model.Teacher
-import com.imit.smallMatfak.model.User
 import com.imit.smallMatfak.repositories.UserRepository
 import com.imit.smallMatfak.screens.ForgotPasswordActivity
 import com.imit.smallMatfak.screens.PersonalAreaStudentActivity
@@ -97,11 +96,11 @@ class MainActivity : AppCompatActivity() {
     private fun addDatabase() {
 
         val student = Student(
-            "Маргарита", "Джинджолия", "Сергеевна", R.drawable.feiry,
+            "Маргарита", "Джинджолия", "Сергеевна", R.drawable.hero_feiry,
             "9507999649", "123456", 11, 3, 19
         )
         val teacher = Teacher(
-            "Ксения", "Филина", "Евгеньевна", R.drawable.feiry,
+            "Ксения", "Филина", "Евгеньевна", R.drawable.hero_feiry,
             "9502181359", "654321"
         )
 

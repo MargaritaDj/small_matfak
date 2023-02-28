@@ -22,20 +22,17 @@ class ForgotPasswordActivity : AppCompatActivity() {
         UtilsView.startPhone(editTextPhone)
         UtilsView.removeErrorOnFocus(editTextPhone, layoutPhone)
 
-        val buttonGetCode: Button = findViewById(R.id.forgot_activity_get_button)
+        val buttonGetCode: ImageButton = findViewById(R.id.forgot_activity_get_button)
         buttonGetCode.setOnClickListener {
             if (Validator.validationPhone(layoutPhone, editTextPhone)) {
-                startActivity(Intent(this, RestoreCodeActivity::class.java))
+                val intent = Intent(this, RestoreCodeActivity::class.java)
+                intent.putExtra("phone", editTextPhone.text.toString())
+                startActivity(intent)
             }
         }
 
         val buttonBack: ImageButton = findViewById(R.id.forgot_activity_back)
         buttonBack.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-
-        val buttonHome: ImageButton = findViewById(R.id.forgot_activity_home)
-        buttonHome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 

@@ -14,6 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/setting"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageView
@@ -33,6 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="5dp"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="SpeakableTextPresentCheck"
         />
 
@@ -147,6 +149,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="35dp"
         android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -175,6 +178,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -204,6 +208,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView

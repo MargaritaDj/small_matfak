@@ -5,21 +5,16 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.MainActivity
 import com.imit.smallMatfak.R
 import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.screens.windows.DialogWindowsPersonalArea
 import com.imit.smallMatfak.screens.windows.TypeDialogMenu
-import com.imit.smallMatfak.utils.UtilsView
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -41,6 +36,7 @@ class PersonalAreaStudentActivity : AppCompatActivity() {
         val rulesButton: ImageButton = findViewById(R.id.personal_area_student_regulations_game)
         val logoutButton: ImageButton = findViewById(R.id.personal_area_student_logout)
         val heroButton: ImageButton = findViewById(R.id.personal_area_student_hero)
+        val playButton: ImageButton = findViewById(R.id.personal_area_student_play)
 
         logoutButton.setOnClickListener {
             val sharedPreferences: SharedPreferences = getSharedPreferences("APP_SHARED_PREF",
@@ -56,7 +52,7 @@ class PersonalAreaStudentActivity : AppCompatActivity() {
 
         nameTextView.text = user?.firstName
         lastNameTextView.text = user?.lastName
-        heroButton.setBackgroundResource(user?.imageHero ?: R.drawable.feiry)
+        heroButton.setBackgroundResource(user?.imageHero ?: R.drawable.hero_feiry)
 
         val scoreExpectation = 7 + user?.level!! - 1
         val scoreCurrent =
@@ -74,46 +70,25 @@ class PersonalAreaStudentActivity : AppCompatActivity() {
         val layout: View = inflater.inflate(R.layout.custom_toast, container)
 
         val dialogWindowsPersonalArea = DialogWindowsPersonalArea(this, layout, user)
-        val itemsSettings = listOf(resources.getString(R.string.change_password), resources.getString(R.string.change_hero))
+        val dialog = Dialog(this)
+
+        playButton.setOnClickListener {
+            dialogWindowsPersonalArea.showDialogMenu(dialog, TypeDialogMenu.PLAY_STUDENT)
+        }
 
         settingsButton.setOnClickListener {
-            val dialogSettings = Dialog(this)
-            dialogWindowsPersonalArea.showDialogMenu(dialogSettings, TypeDialogMenu.SETTINGS)
+            dialogWindowsPersonalArea.showDialogMenu(dialog, TypeDialogMenu.SETTINGS)
         }
 
         rulesButton.setOnClickListener {
-            val dialogRules = Dialog(this)
             val bufferedReader = BufferedReader(InputStreamReader(assets.open("rules_game")))
-            dialogWindowsPersonalArea.showDialogRules(dialogRules, bufferedReader)
+            dialogWindowsPersonalArea.showDialogRules(dialog, bufferedReader)
         }
 
         heroButton.setOnClickListener {
-            val dialogChoiceHero = Dialog(this)
-            dialogWindowsPersonalArea.showDialogChoiceHero(dialogChoiceHero, heroButton)
+            dialogWindowsPersonalArea.showDialogChoiceHero(dialog, heroButton)
         }
 
     }
-}
-
-fun dismissDialogWindow(dialog: Dialog, cross: ImageButton) {
-    cross.setOnClickListener {
-        dialog.dismiss()
-    }
-}
-
-
-fun showPopupSettings(context: Context, settingsMenuView: View) {
-    val popup = PopupMenu(context, settingsMenuView)
-    val inflater: MenuInflater = popup.menuInflater
-    inflater.inflate(R.menu.popup_settings, popup.menu)
-    popup.setOnMenuItemClickListener { menuItem ->
-        when (menuItem.itemId) {
-            R.id.menu_change_password -> {
-
-            }
-        }
-        true
-    }
-    popup.show()
 }
 

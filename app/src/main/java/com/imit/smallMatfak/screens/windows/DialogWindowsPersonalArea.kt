@@ -1,11 +1,13 @@
 package com.imit.smallMatfak.screens.windows
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import com.imit.smallMatfak.screens.adapter.ListAdapter
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
@@ -14,10 +16,10 @@ import com.imit.smallMatfak.R
 import com.imit.smallMatfak.exceptions.AppException
 import com.imit.smallMatfak.exceptions.AppExceptionPassword
 import com.imit.smallMatfak.model.User
+import com.imit.smallMatfak.paginator.Paginator
 import com.imit.smallMatfak.repositories.StudentRepository
 import com.imit.smallMatfak.repositories.UserRepository
 import com.imit.smallMatfak.screens.adapter.ImageAdapter
-import com.imit.smallMatfak.screens.dismissDialogWindow
 import com.imit.smallMatfak.usecase.StudentUseCase
 import com.imit.smallMatfak.usecase.UserUseCase
 import com.imit.smallMatfak.utils.UtilsView
@@ -29,20 +31,27 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
     private val studentUseCase = StudentUseCase(StudentRepository())
     private val userUseCase = UserUseCase(UserRepository())
 
-    private val itemsSettings: List<String> = listOf(context.resources.getString(R.string.change_password),
-        context.resources.getString(R.string.change_hero))
+    private val itemsSettings: List<String> = listOf(context.resources.getString(R.string.change_password))
+    private val itemsPlayStudent: List<String> = listOf(context.resources.getString(R.string.login_room),
+        context.resources.getString(R.string.solved_tasks))
+    private val itemsPlayTeacher: List<String> = listOf(context.resources.getString(R.string.create_room),
+    context.resources.getString(R.string.statistics))
+    private val itemsTasksButton: List<String> = listOf(context.resources.getString(R.string.add_task),
+    context.resources.getString(R.string.list_tasks))
 
 
     fun showDialogMenu(dialogMenu: Dialog, typeDialogMenu: TypeDialogMenu) {
 
         val itemsMenu = when(typeDialogMenu){
             TypeDialogMenu.SETTINGS -> itemsSettings
+            TypeDialogMenu.PLAY_STUDENT -> itemsPlayStudent
+            TypeDialogMenu.PLAY_TEACHER -> itemsPlayTeacher
+            TypeDialogMenu.TASKS -> itemsTasksButton
         }
 
         dialogMenu.setContentView(R.layout.window_menu)
-        dialogMenu.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogMenu.setCanceledOnTouchOutside(false)
-        dialogMenu.show()
+        settingsDialog(dialogMenu)
+
         val changeListView: ListView =
             dialogMenu.findViewById(R.id.menu_list)
         val chooseButton: ImageButton = dialogMenu.findViewById(R.id.menu_choose)
@@ -64,6 +73,16 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
                         showDialogChangePassword(dialogMenu)
                     }
                 }
+
+                TypeDialogMenu.PLAY_STUDENT -> {
+                    if (itemSelected == itemsMenu[0]) {
+                        showDialogWriteCodeRoom(dialogMenu)
+                    }
+                }
+
+                TypeDialogMenu.PLAY_TEACHER -> {}
+
+                TypeDialogMenu.TASKS -> {}
             }
         }
 
@@ -137,9 +156,7 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
 
     fun showDialogRules(dialogRules: Dialog, bufferedReader: BufferedReader) {
         dialogRules.setContentView(R.layout.window_rules)
-        dialogRules.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogRules.setCanceledOnTouchOutside(false)
-        dialogRules.show()
+        settingsDialog(dialogRules)
 
         val rulesText: TextView = dialogRules.findViewById(R.id.rules_text)
         val arrowLeft: ImageButton = dialogRules.findViewById(R.id.rules_arrow_left)
@@ -159,16 +176,19 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
         var page = 1
         rulesText.text = stringPages[page - 1]
         arrowLeft.alpha = alpha
+        arrowLeft.isEnabled = false
 
         arrowRight.setOnClickListener {
             if (page != stringPages.size) {
                 page++
                 rulesText.text = stringPages[page - 1].trim()
                 arrowLeft.alpha = 1F
+                arrowLeft.isEnabled = true
             }
 
             if (page == stringPages.size) {
                 arrowRight.alpha = alpha
+                arrowRight.isEnabled = false
             }
         }
 
@@ -177,29 +197,82 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
                 page--
                 rulesText.text = stringPages[page - 1].trim()
                 arrowRight.alpha = 1F
+                arrowRight.isEnabled = true
             }
 
             if (page == 1) {
                 arrowLeft.alpha = alpha
+                arrowLeft.isEnabled = false
             }
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     fun showDialogChoiceHero(
         dialogChoiceHero: Dialog, imageHeroButton: ImageButton) {
         dialogChoiceHero.setContentView(R.layout.window_choice_hero)
-        dialogChoiceHero.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogChoiceHero.setCanceledOnTouchOutside(false)
-        dialogChoiceHero.show()
+        settingsDialog(dialogChoiceHero)
 
         val gridHeroes: GridView = dialogChoiceHero.findViewById(R.id.choice_hero_grid)
         val buttonChoice: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_button)
-        val adapterImage = ImageAdapter(context = context, context.resources)
+        val buttonArrowLeft: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_arrow_left)
+        val buttonArrowRight: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_arrow_right)
+        var page = 1
+        val alpha = 0.4F
+        buttonArrowLeft.isEnabled = false
+
+        buttonArrowLeft.alpha = alpha
+
+        val arrayHeroes = arrayListOf(
+            R.drawable.hero_feiry, R.drawable.hero_orc, R.drawable.hero_feiry,
+            R.drawable.hero_feiry, R.drawable.hero_feiry, R.drawable.hero_feiry, R.drawable.hero_feiry,
+            R.drawable.hero_feiry, R.drawable.hero_feiry, R.drawable.hero_feiry
+        )
+
+        var adapterImage = ImageAdapter(context = context, context.resources,
+            Paginator.generatePageGridViewHero(arrayHeroes, page))
         gridHeroes.adapter = adapterImage
 
         gridHeroes.onItemClickListener = OnItemClickListener { _, _, pos, _ ->
             adapterImage.setSelectedPosition(pos)
             adapterImage.notifyDataSetChanged()
+        }
+
+        gridHeroes.setOnTouchListener { _, event ->
+            event.action == MotionEvent.ACTION_MOVE
+        }
+
+        buttonArrowLeft.setOnClickListener {
+            if(page != 1){
+                page--
+                adapterImage = ImageAdapter(context = context, context.resources,
+                    Paginator.generatePageGridViewHero(arrayHeroes, page))
+                gridHeroes.adapter = adapterImage
+                buttonArrowRight.alpha = 1F
+                buttonArrowRight.isEnabled = true
+            }
+
+            if(page == 1){
+                buttonArrowLeft.alpha = alpha
+                buttonArrowLeft.isEnabled = false
+            }
+        }
+
+        buttonArrowRight.setOnClickListener {
+            val maxPage = arrayHeroes.size/4 + (arrayHeroes.size % 4 > 0).compareTo(false)
+            if(page != maxPage){
+                page++
+                adapterImage = ImageAdapter(context = context, context.resources,
+                    Paginator.generatePageGridViewHero(arrayHeroes, page))
+                gridHeroes.adapter = adapterImage
+                buttonArrowLeft.alpha = 1F
+                buttonArrowLeft.isEnabled = true
+            }
+
+            if(page == maxPage){
+                buttonArrowRight.alpha = alpha
+                buttonArrowRight.isEnabled = false
+            }
         }
 
         buttonChoice.setOnClickListener {
@@ -217,5 +290,34 @@ class DialogWindowsPersonalArea(val context: Context, private val layout: View, 
 
         val crossButton: ImageButton = dialogChoiceHero.findViewById(R.id.choice_hero_cross)
         dismissDialogWindow(dialogChoiceHero, crossButton)
+    }
+
+    private fun showDialogWriteCodeRoom(dialog: Dialog){
+        val dialogCodeRoom = Dialog(context)
+        dialogCodeRoom.setContentView(R.layout.window_code_room)
+        settingsDialog(dialogCodeRoom)
+        dialog.dismiss()
+
+        val arrowBack: ImageButton = dialogCodeRoom.findViewById(R.id.code_room_back)
+        val cross: ImageButton = dialogCodeRoom.findViewById(R.id.code_room_cross)
+
+        arrowBack.setOnClickListener {
+            dialogCodeRoom.dismiss()
+            showDialogMenu(dialog, TypeDialogMenu.PLAY_STUDENT)
+        }
+
+        dismissDialogWindow(dialogCodeRoom, cross)
+    }
+
+    private fun dismissDialogWindow(dialog: Dialog, cross: ImageButton) {
+        cross.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun settingsDialog(dialog: Dialog){
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.show()
     }
 }

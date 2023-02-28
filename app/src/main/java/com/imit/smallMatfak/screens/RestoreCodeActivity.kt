@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.MainActivity
@@ -29,10 +30,15 @@ class RestoreCodeActivity : AppCompatActivity() {
         val layoutCode3: TextInputLayout = findViewById(R.id.restore_activity_cell_code3)
         val layoutCode4: TextInputLayout = findViewById(R.id.restore_activity_cell_code4)
 
+        val phone = intent.getStringExtra("phone")
+        val phoneInfoText: TextView = findViewById(R.id.restore_activity_info_phone)
+        val text = phoneInfoText.text.toString() + phone
+        phoneInfoText.text = text
+
         UtilsView.switchCellsCode(editTextCode1, editTextCode2, editTextCode3, editTextCode4,
             layoutCode1, layoutCode2, layoutCode3, layoutCode4)
 
-        val buttonChange: Button = findViewById(R.id.restore_activity_change_button)
+        val buttonChange: ImageButton = findViewById(R.id.restore_activity_change_button)
         buttonChange.setOnClickListener {
             val isCorrect1 = Validator.validationCell(layoutCode1, editTextCode1)
             val isCorrect2 = Validator.validationCell(layoutCode2, editTextCode2)
@@ -47,11 +53,6 @@ class RestoreCodeActivity : AppCompatActivity() {
         val buttonBack: ImageButton = findViewById(R.id.restore_activity_back)
         buttonBack.setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
-        }
-
-        val buttonHome: ImageButton = findViewById(R.id.restore_activity_home)
-        buttonHome.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
         }
 
     }

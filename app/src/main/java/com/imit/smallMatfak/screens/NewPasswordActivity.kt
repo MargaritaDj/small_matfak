@@ -13,7 +13,7 @@ import com.imit.smallMatfak.R
 import com.imit.smallMatfak.utils.UtilsView
 import com.imit.smallMatfak.validator.Validator
 
-class NewPasswordActivity : AppCompatActivity(){
+class NewPasswordActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,29 +23,35 @@ class NewPasswordActivity : AppCompatActivity(){
         val buttonPassword1: ImageButton = findViewById(R.id.new_password_button_eye1)
         UtilsView.changePasswordVisibility(editTextPassword, buttonPassword1)
 
-        val editTextPasswordRepeat: EditText = findViewById(R.id.new_password_activity_repeat_password_text)
+        val editTextPasswordRepeat: EditText =
+            findViewById(R.id.new_password_activity_repeat_password_text)
         val buttonPassword2: ImageButton = findViewById(R.id.new_password_button_eye2)
         UtilsView.changePasswordVisibility(editTextPasswordRepeat, buttonPassword2)
 
         val layoutPassword: TextInputLayout = findViewById(R.id.new_password_activity_password)
-        val layoutPasswordRepeat: TextInputLayout = findViewById(R.id.new_password_activity_repeat_password)
+        val layoutPasswordRepeat: TextInputLayout =
+            findViewById(R.id.new_password_activity_repeat_password)
 
         UtilsView.removeErrorOnFocus(editTextPassword, layoutPassword)
         UtilsView.removeErrorOnFocus(editTextPasswordRepeat, layoutPasswordRepeat)
 
-        val buttonDone: Button = findViewById(R.id.new_password_done_button)
-        buttonDone.setOnClickListener {
-            Validator.validationNewPassword(layoutPassword, editTextPassword)
-            Validator.validationPassword(layoutPasswordRepeat, editTextPasswordRepeat)
+        val buttonChange: ImageButton =
+            findViewById(R.id.new_password_activity_change_password_button)
+        buttonChange.setOnClickListener {
+            val valNewPassword = Validator.validationNewPassword(layoutPassword, editTextPassword)
+            val valRepeatPassword = Validator.validationRepeatPassword(
+                layoutPasswordRepeat,
+                editTextPasswordRepeat,
+                editTextPassword
+            )
+
+            if(valNewPassword && valRepeatPassword){
+                startActivity(Intent(this, MainActivity::class.java))
+            }
         }
 
-        val buttonBack: ImageButton = findViewById(R.id.new_password_activity_activity_back)
-        buttonBack.setOnClickListener {
-            startActivity(Intent(this, RestoreCodeActivity::class.java))
-        }
-
-        val buttonHome: ImageButton = findViewById(R.id.new_password_activity_home)
-        buttonHome.setOnClickListener {
+        val buttonCross: ImageButton = findViewById(R.id.new_password_activity_activity_cross)
+        buttonCross.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 

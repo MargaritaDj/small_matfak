@@ -17,14 +17,11 @@ import android.widget.GridView
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.marginBottom
 import com.imit.smallMatfak.R
 
-class ImageAdapter(val context: Context, private val resources: Resources) : BaseAdapter() {
-    private val arrayHeroes = arrayListOf(
-        R.drawable.feiry, R.drawable.home, R.drawable.feiry,
-        R.drawable.feiry, R.drawable.feiry, R.drawable.feiry, R.drawable.feiry,
-        R.drawable.feiry
-    )
+class ImageAdapter(val context: Context, private val resources: Resources,
+                   private val arrayHeroes: List<Int>) : BaseAdapter() {
 
     private var selectedPosition = 0
 
@@ -50,25 +47,27 @@ class ImageAdapter(val context: Context, private val resources: Resources) : Bas
         } else {
             imageView = convertView as ImageView
         }
+
         val heroImageInt = getItem(position) as Int
         val bitMap: Bitmap = BitmapFactory.decodeResource(resources, heroImageInt)
         val pxFromDp65: Int = 65 * context.resources.displayMetrics.density.toInt()
         val bitMapIcon = Bitmap.createScaledBitmap(bitMap, pxFromDp65, pxFromDp65, false)
         imageView.setImageBitmap(bitMapIcon)
 
-        if(selectedPosition == position){
-            imageView.background = ResourcesCompat.getDrawable(resources, R.drawable.frame_hero, null)
+        if (selectedPosition == position) {
+            imageView.background =
+                ResourcesCompat.getDrawable(resources, R.drawable.frame_hero, null)
         } else {
             imageView.background = ColorDrawable(Color.TRANSPARENT)
         }
         return imageView
     }
 
-    fun setSelectedPosition(position: Int){
+    fun setSelectedPosition(position: Int) {
         selectedPosition = position
     }
 
-    fun getSelectedImageHero(): Any{
+    fun getSelectedImageHero(): Any {
         return getItem(selectedPosition)
     }
 }
