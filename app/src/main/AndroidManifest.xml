@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Mm"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.screens.main.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,23 +26,23 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".screens.ForgotPasswordActivity"
+        <activity android:name=".ui.screens.forgotpassword.view.ForgotPasswordActivity"
             android:label="Preferences">
             </activity>
 
-        <activity android:name=".screens.RestoreCodeActivity"
+        <activity android:name=".ui.screens.restorecode.view.RestoreCodeActivity"
             android:label="Preferences">
         </activity>
 
-        <activity android:name=".screens.NewPasswordActivity"
+        <activity android:name=".ui.screens.newpassword.view.NewPasswordActivity"
             android:label="Preferences">
         </activity>
 
-        <activity android:name=".screens.PersonalAreaStudentActivity"
+        <activity android:name=".ui.screens.area.student.view.PersonalAreaStudentActivity"
             android:label="Preferences">
         </activity>
 
-        <activity android:name=".screens.PersonalAreaTeacherActivity"
+        <activity android:name=".ui.screens.area.teacher.view.PersonalAreaTeacherActivity"
             android:label="Preferences">
         </activity>
 
