@@ -7,10 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey_blue">#77a1b5</color>
-    <color name="color_hint">#292727</color>
-    <color name="color_buttons">#82A781</color>
-    <color name="shadow_button">#556449</color>
     <color name="primary">#4c430f</color>
     <color name="background">#76A56E</color>
     <color name="progress_bar">#940000</color>

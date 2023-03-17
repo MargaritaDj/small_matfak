@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:scaleType="center">
+
+    <ImageView
+        android:id="@+id/list_tasks_student_background"
+        android:layout_width="350dp"
+        android:layout_height="650dp"
+        android:background="@drawable/background_list_tasks"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageButton
+        android:id="@+id/list_tasks_student_cross"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@id/list_tasks_student_background"
+        android:layout_alignTop="@id/list_tasks_student_background"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cross"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/list_tasks_student_back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@id/list_tasks_student_background"
+        android:layout_alignTop="@id/list_tasks_student_background"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/arrow_back"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ListView
+        android:id="@+id/list_tasks_student_list"
+        android:layout_width="280dp"
+        android:layout_height="460dp"
+        android:layout_below="@id/list_tasks_student_cross"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:divider="@android:color/transparent"/>
+
+    <ImageButton
+        android:id="@+id/list_tasks_student_arrow_left"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignBottom="@id/list_tasks_student_background"
+        android:layout_alignStart="@id/list_tasks_student_background"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/arrow_left"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:alpha="0.4"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/list_tasks_student_arrow_right"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignBottom="@id/list_tasks_student_background"
+        android:layout_alignEnd="@id/list_tasks_student_background"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/arrow_right"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+</RelativeLayout>

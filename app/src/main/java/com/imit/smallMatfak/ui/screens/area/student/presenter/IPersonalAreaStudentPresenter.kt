@@ -7,4 +7,5 @@ import com.imit.smallMatfak.ui.screens.windows.TypeDialogMenu
 interface IPersonalAreaStudentPresenter<V: PersonalAreaStudentView>: IBasePresenter<V> {
     fun fillInfoStudentByToken(token: String)
     fun logout()
+    fun openListTasksStudent()
 }

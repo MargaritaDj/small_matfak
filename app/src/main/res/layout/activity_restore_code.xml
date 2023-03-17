@@ -9,11 +9,21 @@
     tools:context=".ui.screens.restorecode.view.RestoreCodeActivity">
 
     <ImageView
+        android:id="@+id/restore_activity_logo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/logo"
+        />
+
+    <ImageView
         android:id="@+id/restore_activity_background_login"
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
+        android:layout_below="@id/restore_activity_logo"
+        android:layout_marginTop="30dp"
         android:background="@drawable/background_menu" />
 
     <ImageButton

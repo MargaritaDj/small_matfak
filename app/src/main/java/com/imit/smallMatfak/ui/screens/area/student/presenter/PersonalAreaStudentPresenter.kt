@@ -65,4 +65,8 @@ class PersonalAreaStudentPresenter<V: PersonalAreaStudentView>(private val share
         dialogChoiceHero.showHeroesLeft()
     }
 
+    override fun openListTasksStudent() {
+        getView()?.openListTasksStudentActivity()
+    }
+
 }

@@ -3,6 +3,8 @@ package com.imit.smallMatfak.usecase
 import com.imit.smallMatfak.repositories.UserRepository
 import com.imit.smallMatfak.exceptions.AppErrorCode
 import com.imit.smallMatfak.exceptions.AppExceptionPassword
+import com.imit.smallMatfak.model.Answer
+import com.imit.smallMatfak.model.Task
 import com.imit.smallMatfak.model.User
 
 class UserUseCase(private val userRepository: UserRepository) {
@@ -29,5 +31,13 @@ class UserUseCase(private val userRepository: UserRepository) {
 
     fun changePassword(user: User, oldPassword: String, newPassword: String){
         userRepository.changePassword(user, newPassword)
+    }
+
+    fun getTaskById(idTask: Int): Task {
+        return userRepository.getTaskById(idTask)
+    }
+
+    fun getAnswerById(idAnswer: Int): Answer {
+        return userRepository.getAnswerById(idAnswer)
     }
 }

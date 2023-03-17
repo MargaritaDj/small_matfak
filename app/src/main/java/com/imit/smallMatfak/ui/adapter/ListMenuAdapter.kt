@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 
 
-class ListAdapter(context: Context, private val resource: Int, private val list: List<String>):
+class ListMenuAdapter(context: Context, private val resource: Int, private val list: List<String>):
     ArrayAdapter<String>(context, resource, list) {
 
     private var selectedPosition = 0

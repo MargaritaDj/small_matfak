@@ -11,4 +11,5 @@ interface PersonalAreaStudentView: BaseView, PersonalAreaView {
     fun showDialogHero()
     fun showDialogWriteCodeRoom()
     fun changeImageHero(newImageHero: Int)
+    fun openListTasksStudentActivity()
 }

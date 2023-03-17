@@ -4,13 +4,9 @@ import android.app.Dialog
 import android.content.Context
 import android.widget.ImageButton
 import android.widget.ListView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.imit.smallMatfak.R
-import com.imit.smallMatfak.ui.adapter.ListAdapter
+import com.imit.smallMatfak.ui.adapter.ListMenuAdapter
 import com.imit.smallMatfak.ui.screens.area.student.presenter.PersonalAreaStudentPresenter
-import com.imit.smallMatfak.ui.screens.area.student.view.PersonalAreaStudentView
-import com.imit.smallMatfak.ui.screens.area.teacher.presenter.PersonalAreaTeacherPresenter
 
 class DialogMenu(val context: Context, var presenter: IDialogUserPresenter) {
     private val dialogMenu = Dialog(context)
@@ -35,7 +31,7 @@ class DialogMenu(val context: Context, var presenter: IDialogUserPresenter) {
         DialogUtils.settingsDialog(dialogMenu)
         initial(dialogMenu)
 
-        val adapterListString = ListAdapter(context, R.layout.menu_list_item, itemsMenu)
+        val adapterListString = ListMenuAdapter(context, R.layout.menu_list_item, itemsMenu)
         changeListView.adapter = adapterListString
 
         changeListView.setOnItemClickListener { _, _, pos, _ ->
@@ -48,7 +44,7 @@ class DialogMenu(val context: Context, var presenter: IDialogUserPresenter) {
     }
 
     private fun setOnClick(
-        adapterListString: ListAdapter, typeDialogMenu: TypeDialogMenu,
+        adapterListString: ListMenuAdapter, typeDialogMenu: TypeDialogMenu,
         itemsMenu: List<String>
     ) {
         chooseButton.setOnClickListener {
@@ -57,14 +53,17 @@ class DialogMenu(val context: Context, var presenter: IDialogUserPresenter) {
                 TypeDialogMenu.SETTINGS -> {
                     if (itemSelected == itemsMenu[0]) {
                         presenter.showDialogChangePassword()
-                        dialogMenu.dismiss()
                     }
                 }
 
                 TypeDialogMenu.PLAY_STUDENT -> {
                     if (itemSelected == itemsMenu[0]) {
                         (presenter as PersonalAreaStudentPresenter<*>).showDialogWriteCodeRoom()
-                        dialogMenu.dismiss()
+                    }
+                    if(itemSelected == itemsMenu[1]) {
+                        //context.startActivity(Intent(context, ListTasksStudentActivity::class.java))
+                        (presenter as PersonalAreaStudentPresenter<*>).openListTasksStudent()
+
                     }
                 }
 
@@ -72,6 +71,7 @@ class DialogMenu(val context: Context, var presenter: IDialogUserPresenter) {
 
                 TypeDialogMenu.TASKS -> {}
             }
+            dialogMenu.dismiss()
         }
     }
 

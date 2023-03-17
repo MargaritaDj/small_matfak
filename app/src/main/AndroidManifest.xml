@@ -46,6 +46,18 @@
             android:label="Preferences">
         </activity>
 
+        <activity android:name=".ui.screens.listtasks.student.view.ListTasksStudentActivity"
+            android:label="Preferences">
+        </activity>
+
+        <activity android:name=".ui.screens.abouttask.view.AboutTaskStudentActivity"
+            android:label="Preferences">
+        </activity>
+
+        <activity android:name=".ui.screens.solve.view.SolveTaskStudentActivity"
+            android:label="Preferences">
+        </activity>
+
     </application>
 
 </manifest>

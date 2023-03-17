@@ -15,6 +15,7 @@ import com.imit.smallMatfak.R
 import com.imit.smallMatfak.model.Student
 import com.imit.smallMatfak.ui.screens.area.student.presenter.PersonalAreaStudentPresenter
 import com.imit.smallMatfak.ui.screens.base.view.BaseActivity
+import com.imit.smallMatfak.ui.screens.listtasks.student.view.ListTasksStudentActivity
 import com.imit.smallMatfak.ui.screens.windows.*
 import com.imit.smallMatfak.ui.screens.windows.Toast
 import java.io.BufferedReader
@@ -53,6 +54,7 @@ class PersonalAreaStudentActivity : BaseActivity(), PersonalAreaStudentView {
         presenter = PersonalAreaStudentPresenter(sharedPreferences)
         presenter.onAttach(this)
         presenter.fillInfoStudentByToken(token)
+        openMenuPlay(intent.getBooleanExtra("clickPlay", false))
     }
 
     override fun openMainActivity() {
@@ -103,6 +105,12 @@ class PersonalAreaStudentActivity : BaseActivity(), PersonalAreaStudentView {
         heroButton.setBackgroundResource(newImageHero)
     }
 
+    override fun openListTasksStudentActivity() {
+        val intent = Intent(this, ListTasksStudentActivity::class.java)
+        intent.putExtra("token", token)
+        startActivity(intent)
+    }
+
     override fun onDestroy() {
         presenter.onDetach()
         super.onDestroy()
@@ -117,6 +125,12 @@ class PersonalAreaStudentActivity : BaseActivity(), PersonalAreaStudentView {
             presenter.showDialogRules(bufferedReader)
         }
         heroButton.setOnClickListener { presenter.showDialogHero() }
+    }
+
+    private fun openMenuPlay(isOpenMenuPlay: Boolean){
+        if(isOpenMenuPlay){
+            playButton.callOnClick()
+        }
     }
 }
 
