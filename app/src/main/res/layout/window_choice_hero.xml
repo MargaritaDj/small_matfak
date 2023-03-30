@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/choice_hero_background"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background_menu" />
+
+    <ImageButton
+        android:id="@+id/choice_hero_cross"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/choice_hero_background"
+        android:layout_alignEnd="@id/choice_hero_background"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/cross"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        />
+
+    <ImageButton
+        android:id="@+id/choice_hero_arrow_left"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/arrow_left_small"
+        android:layout_alignStart="@id/choice_hero_background"
+        android:layout_marginStart="20dp"
+        android:layout_centerVertical="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        />
+
+    <GridView
+        android:id="@+id/choice_hero_grid"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/choice_hero_cross"
+        android:layout_alignStart="@id/choice_hero_arrow_left"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:numColumns="2"
+        android:verticalSpacing="30dp"
+        android:horizontalSpacing="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:scrollbars="none"
+        />
+
+    <ImageButton
+        android:id="@+id/choice_hero_arrow_right"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/arrow_right_small"
+        android:layout_toEndOf="@id/choice_hero_grid"
+        android:layout_marginStart="-20dp"
+        android:layout_centerVertical="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        />
+
+    <ImageButton
+        android:id="@+id/choice_hero_button"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/choice_hero_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_menu"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/choice_hero_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:letterSpacing="0.07"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:shadowColor="@color/black"
+        android:shadowRadius="5"
+        android:shadowDx="10"
+        android:text="@string/choose"
+        android:gravity="center_horizontal"
+        android:paddingTop="5dp"
+        />
+
+
+</RelativeLayout>

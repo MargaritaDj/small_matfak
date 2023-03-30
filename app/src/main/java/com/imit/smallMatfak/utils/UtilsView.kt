@@ -1,9 +1,12 @@
 package com.imit.smallMatfak.utils
 
+import android.graphics.Color
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.view.Gravity
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.view.setPadding
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputLayout
 import com.imit.smallMatfak.R
@@ -30,11 +33,11 @@ object UtilsView {
     fun changePasswordVisibility(editText: EditText, button: ImageButton) {
         button.setOnClickListener {
             if (button.tag == "1") {
-                button.setBackgroundResource(R.drawable.icon_open_eye)
+                button.setBackgroundResource(R.drawable.icon_close_eye)
                 editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                 button.tag = "2"
             } else {
-                button.setBackgroundResource(R.drawable.icon_close_eye)
+                button.setBackgroundResource(R.drawable.icon_open_eye)
                 editText.transformationMethod = PasswordTransformationMethod.getInstance()
                 button.tag = "1"
             }
@@ -70,6 +73,14 @@ object UtilsView {
             layoutText4.error = ""
         }
     }
+
+   /* fun onFocusCell(editText: EditText){
+        editText.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+               editText.setText("")
+            }
+        }
+    }*/
 
     fun removeErrorOnFocus(editText: EditText, layoutText: TextInputLayout){
         editText.addTextChangedListener {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ErrorText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/minecraftia_regular</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.07</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+</resources>

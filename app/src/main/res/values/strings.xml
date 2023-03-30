@@ -1,24 +1,62 @@
 <resources>
     <string name="app_name">mm</string>
+
+    <!-- Login_Text -->
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
-    <string name="login_button">Войти</string>
-    <string name="forgot_password">Забыли пароль?</string>
     <string name="restore_password">Восстановление пароля</string>
     <string name="phone">Телефон</string>
+    <string name="code_from_sms">код из смс</string>
+    <string name="new_password">новый пароль</string>
+    <string name="old_password">старый пароль</string>
+    <string name="repeat_new_password">повторите пароль</string>
+    <string name="info_phone">на номер </string>
+    <string name="info_unit">было отправлено смс с\nкодом</string>
+    <string name="timer">через 01:00</string>
+
+    <!-- Menu_Text -->
+    <string name="change_password">сменить\nпароль</string>
+    <string name="login_room">войти в\nкомнату</string>
+    <string name="solved_tasks">решенные\nзадачи</string>
+    <string name="create_room">создать\nкомнату</string>
+    <string name="statistics">статистика</string>
+    <string name="add_task">добавить\nзадачу</string>
+    <string name="list_tasks">список\nзадач</string>
+
+    <!-- Personal_Area_Text -->
+    <string name="level">"уровень "</string>
+    <string name="score">"решено задач   "</string>
+    <string name="code_room">код комнаты</string>
+
+    <!-- About Tasks -->
+    <string name="solved_green">решено верно</string>
+    <string name="solved_red">решено неверно</string>
+    <string name="condition_task">условие задачи</string>
+    <string name="solve_task">решение задачи</string>
+    <string name="not_solve">К сожалению, разбора данной задачи нет</string>
+    <string name="right_answer">верный ответ: </string>
+    <string name="student_answer">ваш ответ: </string>
+
+    <!-- Buttons -->
+    <string name="login_button">Войти</string>
+    <string name="forgot_password">Забыли пароль?</string>
     <string name="get_code">Получить код</string>
-    <string name="code_from_sms">Введите код из смс</string>
-    <string name="change_password">Сменить пароль</string>
-    <string name="new_password">Новый пароль</string>
-    <string name="repeat_new_password">Повторите пароль</string>
-    <string name="done_button">Готово</string>
+    <string name="change_button">сменить пароль</string>
+    <string name="done_button">готово</string>
     <string name="make_room">Создать комнату</string>
-    <string name="list_tasks">Список задач</string>
-    <string name="regulations_game">Правила игры</string>
-    <string name="exit">Выйти</string>
-    <string name="play">Играть</string>
-    <string name="settings">Настройки</string>
-    <string name="choose_character">Выбрать персонажа</string>
+    <string name="tasks">задачи</string>
+    <string name="regulations_game">правила</string>
+    <string name="exit">выход</string>
+    <string name="play">игра</string>
+    <string name="settings">настройки</string>
     <string name="change_data">Изменить данные</string>
-    <string name="statistics">Статистика</string>
+    <string name="choose">выбрать</string>
+    <string name="change">сменить</string>
+    <string name="request_again">запросить повторно</string>
+    <string name="open">открыть</string>
+    <string name="solve">решение</string>
+    
+    <!-- Toast -->
+    <string name="ok_image_hero">Персонаж успешно изменён</string>
+    <string name="ok_changed_password">Пароль успешно изменён</string>
 </resources>

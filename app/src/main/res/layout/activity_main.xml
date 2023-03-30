@@ -4,64 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/background"
     android:scaleType="center"
-    tools:context=".MainActivity">
+    tools:context=".ui.screens.main.view.MainActivity">
+
+    <ImageView
+        android:id="@+id/main_activity_background_logo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/logo"
+        />
 
     <ImageView
         android:id="@+id/main_activity_background_login"
         android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:alpha="0.7"
-        android:layout_centerInParent="true"
-        android:background="@color/grey_blue"
-        tools:ignore="MissingConstraints"
-         />
+        android:layout_height="300dp"
+        android:layout_below="@id/main_activity_background_logo"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_area" />
+
+    <TextView
+        android:id="@+id/main_activity_login_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:letterSpacing="0.07"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:layout_alignTop="@id/main_activity_background_login"
+        android:layout_alignStart="@id/main_activity_background_login"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_activity_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@id/main_activity_background_login"
-        android:textColorHint="@color/color_hint"
-        android:layout_marginTop="50dp"
+        android:layout_alignTop="@id/main_activity_login_text_view"
+        android:layout_marginTop="10dp"
         app:errorEnabled="true"
+        app:hintAnimationEnabled="false"
+        app:errorTextAppearance="@style/ErrorText"
         app:errorIconDrawable="@android:color/transparent"
         >
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/main_activity_phone_text"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:paddingStart="20dp"
-        android:background="@color/white"
-        android:hint="@string/login"
-        android:inputType="phone"
-        android:maxLength="12"
-        />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_activity_phone_text"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/transparent"
+            android:inputType="phone"
+            android:maxLength="12"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/minecraftia_regular"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/main_activity_password_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:letterSpacing="0.07"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textAllCaps="true"
+        android:layout_below="@id/main_activity_phone"
+        android:layout_alignStart="@id/main_activity_background_login"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_activity_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/main_activity_phone"
-        android:layout_marginTop="30dp"
+        android:layout_alignTop="@id/main_activity_password_text_view"
+        android:layout_marginTop="10dp"
         android:textColorHint="@color/color_hint"
         app:errorEnabled="true"
+        app:hintAnimationEnabled="false"
+        app:errorTextAppearance="@style/ErrorText"
         app:errorIconDrawable="@android:color/transparent"
         >
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/main_activity_password_text"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:hint="@string/password"
-        android:paddingStart="20dp"
-        android:inputType="textPassword"
-        android:maxLength="15"
-        />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_activity_password_text"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:backgroundTint="@android:color/transparent"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/minecraftia_regular"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
@@ -69,52 +117,62 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignEnd="@id/main_activity_password"
-        android:layout_alignBottom="@id/main_activity_password"
+        android:layout_below="@id/main_activity_password_text_view"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="35dp"
-        android:background="@drawable/icon_close_eye"
+        android:background="@drawable/icon_open_eye"
         android:alpha="0.7"
         android:tag="1"
         tools:ignore="NotSibling,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="158dp"
-        android:layout_height="57dp"
-        android:backgroundTint="@color/shadow_button"
-        android:layout_alignStart="@id/main_activity_login_button"
-        android:layout_alignTop="@id/main_activity_login_button"
-        android:layout_below="@id/main_activity_password"
-        android:layout_marginTop="6dp"
-        app:cardCornerRadius="0dp"
-        />
-
-    <Button
+    <ImageButton
         android:id="@+id/main_activity_login_button"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/main_activity_background_login"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/main_activity_password"
-        android:backgroundTint="@color/color_buttons"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="@string/login_button"
-        android:textStyle="bold"
         android:textSize="17sp"
+        android:textStyle="bold"
         app:cornerRadius="0dp"
-        tools:ignore="NotSibling" />
+        tools:ignore="NotSibling,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/main_activity_background_login"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/minecraftia_regular"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="10"
+        android:shadowRadius="5"
+        android:text="@string/login_button"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/main_activity_forgot_password"
         android:layout_width="180dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_below="@id/main_activity_login_button"
+        android:padding="0dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
-        android:fontFamily="monospace"
         android:text="@string/forgot_password"
-        android:textAllCaps="false"
-        android:textColor="@color/color_hint"
-        android:textSize="13sp"
-        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:letterSpacing="0.07"
+        android:fontFamily="@font/minecraftia_regular"
+        android:textSize="12sp"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:ignore="TouchTargetSizeCheck" />
 </RelativeLayout>
